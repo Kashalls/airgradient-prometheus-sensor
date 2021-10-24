@@ -70,7 +70,7 @@ typedef metric_resp_t (*metric_fetch_t)(void);
 /* Valid metric types */
 typedef enum metric_type {
   METRIC_TYPE_COUNTER,
-  METRIC_TYPE_GUAGE,
+  METRIC_TYPE_GAUGE,
   METRIC_TYPE_HISTOGRAM,
   METRIC_TYPE_SUMMARY,
   METRIC_TYPE_UNTYPED
@@ -79,13 +79,13 @@ typedef enum metric_type {
 /* Strings for those metric types */
 const char* METRIC_TYPES[] = {
   "counter",
-  "guage",
+  "gauge",
   "histogram",
   "summary",
   "untyped"
 };
 /**
- * Note: Since only the `guage` type is used, these could be dropped.
+ * Note: Since only the `gauge` type is used, these could be dropped.
  * But to keep things flexible, I've elected to leave them in.
  * /
 
@@ -234,11 +234,11 @@ size_t generate_ident(char* buf, size_t sz_max) {
 
 String GenerateMetrics() {
   metric_t metrics[] = {
-    { METRIC_TYPE_GUAGE, "pm02", "PM2.5 Particulate Matter Concentration (ug/m^3)", get_pm2 },
-    { METRIC_TYPE_GUAGE, "rc02", "CO2 Concentration (ppm)", get_co2 },
-    { METRIC_TYPE_GUAGE, "atmp", "Ambient Temperature (*C)", get_atmp },
-    { METRIC_TYPE_GUAGE, "rhum", "Relative Humidity (%)", get_rhum },
-    { METRIC_TYPE_GUAGE, "wifi", "WiFi Signal Strength (dBm)", get_wifi_dbm }
+    { METRIC_TYPE_GAUGE, "pm02", "PM2.5 Particulate Matter Concentration (ug/m^3)", get_pm2 },
+    { METRIC_TYPE_GAUGE, "rc02", "CO2 Concentration (ppm)", get_co2 },
+    { METRIC_TYPE_GAUGE, "atmp", "Ambient Temperature (*C)", get_atmp },
+    { METRIC_TYPE_GAUGE, "rhum", "Relative Humidity (%)", get_rhum },
+    { METRIC_TYPE_GAUGE, "wifi", "WiFi Signal Strength (dBm)", get_wifi_dbm }
   };
 
   String response = "";
